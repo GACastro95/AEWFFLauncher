@@ -1,0 +1,62 @@
+﻿<Window x:Class="AEWFF_Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        Loaded="Window_Loaded">
+    <Window.Background>
+        <ImageBrush ImageSource="/T_TitleRosterBG.png"/>
+    </Window.Background>
+    <Window.Resources>
+        <!-- Style for the buttons -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="46"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="backgroundImage" Source="/Button_Template.png" Stretch="Fill"/>
+                            <Border x:Name="border"
+                                    Background="Transparent"
+                                    Opacity="0"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#007ACC"/>
+                                <!-- Change background color on hover -->
+                                <Setter TargetName="border" Property="Opacity" Value="0.5"/>
+                                <!-- Adjust opacity on hover -->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#003366"/>
+                                <!-- Change background color when pressed -->
+                                <Setter TargetName="border" Property="Opacity" Value="0.8"/>
+                                <!-- Adjust opacity when pressed -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <!-- Image centered in the Grid -->
+        <Image x:Name="image1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="508" Source="/T_title_screen_AEWFF_Logo.png"/>
+
+        <!-- StackPanel for buttons near the image -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,300,0,0">
+            <Button x:Name="VanillaButton" Content="Vanilla" Style="{StaticResource ButtonStyle}" Background="Transparent" Click="StartVanillaGame"/>
+            <Button x:Name="ModdedButton" Content="Modded" Style="{StaticResource ButtonStyle}" Background="Transparent" Margin="20,0,0,0"/>
+            <Button x:Name="SetupButton" Content="Setup" Style="{StaticResource ButtonStyle}" Background="Transparent" Margin="20,0,0,0" Click="SetupButton_Click"/>
+            <Button x:Name="ExitButton" Content="Exit" Style="{StaticResource ButtonStyle}" Background="Transparent" Margin="20,0,0,0" Click="ExitButton_Click"/>
+        </StackPanel>
+        <Button x:Name="TitleExitButton" Content="X" HorizontalAlignment="Left" Margin="777,10,0,0" VerticalAlignment="Top" Click="ExitButton_Click" Background="{x:Null}" FontFamily="Arial Black" Foreground="White" BorderBrush="{x:Null}"/>
+    </Grid>
+</Window>
