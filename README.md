@@ -1,6 +1,6 @@
 # AEW Fight Forever Launcher
 
-This is just a launcher that enables you to select between launching the game in a vanilla instance or a modded instance. This has the mod bypass built into it so you no longer need to put any files in the game's binaries folder.
+This is just a launcher that enables you to select between launching the game in a vanilla instance or a modded instance. This has the mod bypass built as a DLL (source code of this can be found here https://github.com/GACastro95/AEW-FF-Mod-Bypass/tree/DLL) so you no longer need to put any files in the game's binaries folder.
 
 # First Time Setup
 1. Launch the program
